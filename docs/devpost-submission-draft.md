@@ -1,6 +1,6 @@
 # Devpost Submission Draft — NEMA Boundary Runtime
 
-> Status: post-API proof draft. Do not submit until the remaining Codex Session ID is filled, YouTube visibility is public, and the final cross-link review passes.
+> Status: final draft. Before submission, confirm YouTube visibility is public and complete the final cross-link review.
 
 ## Track
 
@@ -12,7 +12,7 @@ Turn conversational signals into executable, inspectable AI safety policies.
 
 ## Inspiration
 
-LLM boundary behavior is often hidden in a static prompt. When a conversation becomes urgent, dependent, or emotionally intense, developers can see the final response but not a deterministic explanation of why control behavior changed. We wanted a small policy layer that could be inspected, replayed, validated, and calibrated independently from the model.
+LLM boundary behavior is often hidden in a static prompt. When a conversation becomes urgent, dependent, or emotionally intense, developers can see the final response but not a deterministic explanation of why control behavior changed. We wanted a small policy layer that could be inspected, replayed, validated, and calibrated independently from the model. Instead of asking the model to explain its own behavior, NEMA makes the runtime itself produce the explanation.
 
 ## What it does
 
@@ -39,7 +39,7 @@ Codex helped turn the initial specification into a working runtime, generated ad
 
 The limited API proof pins `openai/gpt-5.6-sol` through OpenRouter, restricts routing to the OpenAI provider, disables fallbacks, requests data-collection denial, and uses low reasoning effort. State inference uses a strict JSON Schema with seven bounded 0..1 signals plus the `support_escalation` enum. Pydantic validates the returned JSON before the deterministic NEMA runtime evaluates policies. Baseline and controlled responses then use the same pinned model; only the controlled path receives the runtime directives.
 
-The deterministic NEMA runtime—not GPT-5.6—decides which policy fires and creates the execution trace.
+The deterministic NEMA runtime—not GPT-5.6—decides which policy fires and creates the execution trace. The reviewed four-scenario integration proof completed 12 successful calls using 3,505 tokens at a reported cost of $0.08235; it demonstrates integration, not benchmark performance.
 
 ## Challenges
 
@@ -60,11 +60,11 @@ Safety controls are easier to test when model inference, deterministic policy de
 
 ## What's next
 
-- Expand beyond the completed four-scenario / 12-call GPT-5.6 integration proof; it used 3,505 tokens at a reported cost of $0.08235 and is not presented as a benchmark
+- Expand the integration proof with blinded, unseen conversational cases
 - Model-specific calibration profiles
 - Human review and abstention paths
 - Versioned policy signing and organization-level policy packs
-- Integration with the wider Emilia boundary protocol
+- Broader boundary-control integrations and deployment tooling
 
 ## Important limitations
 
@@ -75,9 +75,7 @@ Safety controls are easier to test when model inference, deterministic policy de
 ## Links
 
 - Demo video: https://www.youtube.com/watch?v=PE7fCeTxB38
-- Recruitment/project page: https://kagioneko.com/portfolio_site/recruit.html
+- Project page: https://kagioneko.com/portfolio_site/recruit.html
 - Repository: https://github.com/kagioneko/nema-boundary-runtime
 - Hosted sandbox: https://nema.kagioneko.com/
 - Codex `/feedback` Session ID: `019f76f8-1bde-7d12-a8cd-21928bbe4906`
-
-A separate final integration and verification thread is supplied for privacy and security hygiene; dated public commits document the full implementation history.

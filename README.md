@@ -96,7 +96,7 @@ Human decisions defined the product boundary and research claims: treating Neuro
 
 ## Build Week notes
 
-The project targets **Developer Tools**. A separate Codex `/feedback` verification thread is ready for submission; the remaining gates are final public YouTube visibility and final Devpost form review. Independent review for the current release is complete; any future public change must receive a new security/quality review recorded in the private operator handoff log.
+The project targets **Developer Tools**. The Codex `/feedback` requirement is complete; the remaining gates are final public YouTube visibility and final Devpost form review. Independent review for the current release is complete; any future public change must receive a new security/quality review recorded in the private operator handoff log.
 
 ### Windows activation
 
