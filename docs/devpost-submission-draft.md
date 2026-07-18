@@ -29,7 +29,7 @@ Developers can temporarily edit a threshold and replay the same input. The overr
 - A 40-case stratified offline development contract
 - Pytest, adversarial body-limit tests, and Playwright desktop/mobile checks
 - Docker and one-command local workflows
-- `[FINAL GPT-5.6 STRUCTURED OUTPUT DETAILS]`
+- GPT-5.6 Sol through OpenRouter for strict Structured Output state inference and baseline/controlled response generation
 
 ## Where Codex accelerated the work
 
@@ -37,7 +37,7 @@ Codex helped turn the initial specification into a working runtime, generated ad
 
 ## How GPT-5.6 is used
 
-`[FINAL: describe the exact GPT-5.6 model ID, Responses API Structured Output schema, reasoning setting, retry behavior, and response-generation path.]`
+The limited API proof pins `openai/gpt-5.6-sol` through OpenRouter, restricts routing to the OpenAI provider, disables fallbacks, requests data-collection denial, and uses low reasoning effort. State inference uses a strict JSON Schema with seven bounded 0..1 signals plus the `support_escalation` enum. Pydantic validates the returned JSON before the deterministic NEMA runtime evaluates policies. Baseline and controlled responses then use the same pinned model; only the controlled path receives the runtime directives.
 
 The deterministic NEMA runtime—not GPT-5.6—decides which policy fires and creates the execution trace.
 
@@ -60,7 +60,7 @@ Safety controls are easier to test when model inference, deterministic policy de
 
 ## What's next
 
-- `[FINAL API EVALUATION RESULTS]`
+- Expand beyond the completed four-scenario / 12-call GPT-5.6 integration proof; it used 3,505 tokens at a reported cost of $0.08235 and is not presented as a benchmark
 - Model-specific calibration profiles
 - Human review and abstention paths
 - Versioned policy signing and organization-level policy packs

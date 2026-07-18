@@ -17,3 +17,5 @@ artifacts/*
 site-integration/
 tools/youtube_reauth_vault.py
 tools/youtube_upload_vault.py
+!evaluation/results/
+!evaluation/results/openrouter-gpt-5.6-proof.json

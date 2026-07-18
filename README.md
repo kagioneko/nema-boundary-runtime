@@ -16,10 +16,11 @@ NEMA Boundary Runtime is an inspectable Developer Tool that converts inferred co
 - autonomy, urgency, distress, exclusive-attachment, and support-escalation policies;
 - baseline/controlled response comparison;
 - responsive browser demo;
-- offline deterministic fixture for repeatable judging and tests.
-- 40-case stratified development contract and dashboard.
+- offline deterministic fixture for repeatable judging and tests;
+- 40-case stratified development contract and dashboard;
+- a four-scenario, 12-call GPT-5.6 Sol API proof through OpenRouter.
 
-The offline fixture is deliberately labeled and is **not** presented as a trained classifier. A GPT-5.6 structured-output adapter is the next integration step.
+The offline fixture is deliberately labeled and is **not** presented as a trained classifier. A separate limited API proof uses GPT-5.6 Sol Structured Outputs for state inference and GPT-5.6 Sol for baseline/controlled generation. It is evidence of integration, not a benchmark or generalization result.
 
 ## Live hosted sandbox
 
@@ -66,6 +67,17 @@ input -> structured signal adapter -> ControlState validation
 ```
 
 Policy data lives in `policies/default.json`; the model profile is in `profiles/gpt-5.6-sol.json`. See `docs/specification.md` for the frozen MVP boundary and evaluation plan. Demo and judging paths are in `docs/demo-script.md` and `docs/judge-test.md`.
+
+## Limited GPT-5.6 API proof
+
+The reproducible proof script retrieves the OpenRouter key from Vault at runtime, pins `openai/gpt-5.6-sol`, restricts routing to the OpenAI provider, disables fallbacks, and requests denial of provider data collection:
+
+```bash
+python tools/run_openrouter_proof.py --dry-run
+python tools/run_openrouter_proof.py
+```
+
+The reviewed four-scenario artifact is in `evaluation/results/openrouter-gpt-5.6-proof.json`: 12 successful calls, returned model `openai/gpt-5.6-sol`, provider `OpenAI`, 3,505 total tokens, and reported cost **$0.08235**. This small proof is intentionally separate from the deterministic 40-case development contract.
 
 ## Credential handling
 
