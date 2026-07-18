@@ -78,4 +78,6 @@ Safety controls are easier to test when model inference, deterministic policy de
 - Recruitment/project page: https://kagioneko.com/portfolio_site/recruit.html
 - Repository: https://github.com/kagioneko/nema-boundary-runtime
 - Hosted sandbox: https://nema.kagioneko.com/
-- Codex `/feedback` Session ID: `[FINAL SESSION ID]`
+- Codex `/feedback` Session ID: `019f76f8-1bde-7d12-a8cd-21928bbe4906`
+
+A separate final integration and verification thread is supplied for privacy and security hygiene; dated public commits document the full implementation history.
