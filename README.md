@@ -18,7 +18,8 @@ NEMA Boundary Runtime is an inspectable Developer Tool that converts inferred co
 - responsive browser demo;
 - offline deterministic fixture for repeatable judging and tests;
 - 40-case stratified development contract and dashboard;
-- a four-scenario, 12-call GPT-5.6 Sol API proof through OpenRouter.
+- a four-scenario, 12-call GPT-5.6 Sol API proof through OpenRouter;
+- a limited post-generation directive verifier with `PASS` / `VIOLATION` / `REVIEW` results.
 
 The offline fixture is deliberately labeled and is **not** presented as a trained classifier. A separate limited API proof uses GPT-5.6 Sol Structured Outputs for state inference and GPT-5.6 Sol for baseline/controlled generation. It is evidence of integration, not a benchmark or generalization result.
 
@@ -78,6 +79,10 @@ python tools/run_openrouter_proof.py
 ```
 
 The reviewed four-scenario artifact is in `evaluation/results/openrouter-gpt-5.6-proof.json`: 12 successful calls, returned model `openai/gpt-5.6-sol`, provider `OpenAI`, 3,505 total tokens, and reported cost **$0.08235**. This small proof is intentionally separate from the deterministic 40-case development contract.
+
+## Verification boundary
+
+NEMA now performs deterministic post-generation checks for a narrow set of observable requirements, including decision takeover, autonomy return, exclusive relational claims, human-support language, and pause/confirmation language. Directives that cannot be reliably verified with phrase rules are marked `REVIEW`, not silently passed. This closes part of the enforcement gap but does not guarantee semantic compliance. Directive priority currently controls deterministic ordering and deduplication; semantic conflict arbitration is explicitly future work. MVP thresholds are hypothesis-driven defaults, not statistically calibrated cutoffs.
 
 ## Credential handling
 

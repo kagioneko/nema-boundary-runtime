@@ -43,6 +43,16 @@ class PolicyTrace(BaseModel):
     conditions: list[ConditionTrace]
     directives: list[str]
 
+class ComplianceCheck(BaseModel):
+    directive: str
+    status: str
+    reason: str
+
+class VerificationSummary(BaseModel):
+    overall: str
+    checks: list[ComplianceCheck]
+    scope: str
+
 class AnalysisResult(BaseModel):
     profile_id: str
     policy_version: str
@@ -54,3 +64,4 @@ class AnalysisResult(BaseModel):
     baseline_response: str
     controlled_response: str
     change_reasons: list[str]
+    verification: VerificationSummary

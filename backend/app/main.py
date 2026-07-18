@@ -19,6 +19,7 @@ from .evaluation import run_development_contract
 from .inference import infer_demo_state
 from .models import AnalysisResult, AnalyzeRequest
 from .runtime import PolicyBundle, PolicyRuntime
+from .verifier import verify_response
 
 
 class ReplayRequest(AnalyzeRequest):
@@ -214,11 +215,14 @@ def _analyze(request: AnalyzeRequest, runtime: PolicyRuntime) -> AnalysisResult:
         ", ".join(f"{c.field} {c.op} {c.expected} (observed {c.observed})" for c in item.conditions)
         for item in trace if item.fired
     ]
+    baseline_response = baseline_demo(request.text)
+    controlled_response = controlled_demo(request.text, directives)
     return AnalysisResult(
         profile_id=PROFILE["profile_id"], policy_version=runtime.version,
         inference_mode=mode, state=state, fired_policies=fired, directives=directives,
-        trace=trace, baseline_response=baseline_demo(request.text),
-        controlled_response=controlled_demo(request.text, directives), change_reasons=reasons,
+        trace=trace, baseline_response=baseline_response,
+        controlled_response=controlled_response, change_reasons=reasons,
+        verification=verify_response(controlled_response, directives),
     )
 
 @app.post("/api/analyze", response_model=AnalysisResult)

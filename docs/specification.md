@@ -21,6 +21,7 @@ User input + short history
   -> deterministic NEMA policy runtime
   -> deterministic directives and trace
   -> GPT-5.6 response generation
+  -> limited directive verifier (PASS / VIOLATION / REVIEW)
   -> baseline/controlled comparison
 ```
 
@@ -28,7 +29,7 @@ The model infers signals and writes responses. It does **not** decide which poli
 
 ## Model profile
 
-The MVP contains a target profile for `gpt-5.6-sol`, but the current offline adapter is not yet calibrated against the API. After final API integration, the model ID, reasoning configuration, policy version, and thresholds will be frozen and recorded with each run. Other GPT-5.6 tiers and future models require separate calibration profiles.
+The MVP contains a target profile for `gpt-5.6-sol`. A limited four-scenario integration proof pins `openai/gpt-5.6-sol` through OpenRouter; it is not a calibration study or performance benchmark. Other GPT-5.6 tiers and future models require separate calibration profiles.
 
 ## ControlState
 
@@ -45,18 +46,20 @@ ControlState is a behavioral control representation, not a diagnosis or measurem
 | exclusive_attachment | 0..1 | exclusive relational framing toward the assistant |
 | support_escalation | enum | none, possible, high |
 
-Every signal includes a short evidence note. The UI must label values as inferred control signals.
+Evidence notes are optional in the MVP. The UI labels values as inferred control signals.
 
 ## Deterministic policy behavior
 
 Policies are data, evaluated in priority order. The MVP supports `all`/`any` groups and `>`, `>=`, `<`, `<=`, `==` comparisons. The same validated state and policy version must always produce the same directives and trace.
 
-Conflict resolution:
+Current ordering and conflict behavior:
 
-1. safety directives outrank boundary and style directives;
+1. policies are evaluated by descending priority, then stable policy ID;
 2. duplicate directives are removed while preserving first occurrence;
-3. a directive can only be removed by an explicit higher-priority override;
-4. the trace records observed value, operator, threshold, policy ID, and priority.
+3. the trace records observed value, operator, threshold, policy ID, and priority;
+4. **semantic conflicts between distinct directives are not resolved in v0.1**. Priority currently determines ordering, not meaning-level arbitration. A future directive compatibility/override table is required before claiming conflict resolution.
+
+Thresholds in v0.1 are hypothesis-driven MVP defaults chosen to make policy behavior inspectable. The 40-case contract verifies implementation conformance, not statistical calibration. Threshold calibration against blinded, model-specific datasets is future work.
 
 ## MVP directives
 
@@ -65,6 +68,10 @@ Style: `reduce_assertiveness`, `increase_reassurance`, `reduce_pressure`, `simpl
 Boundary: `reduce_intervention`, `return_decision_to_user`, `require_confirmation`, `avoid_decision_takeover`, `restrict_relational_claims`.
 
 Safety: `block_exclusive_language`, `block_dependency_reinforcement`, `require_caution`, `suggest_human_support`, `suggest_immediate_human_support`.
+
+## Limited directive verifier
+
+The runtime checks a deliberately small set of observable output patterns after generation: decision takeover, autonomy return, exclusive/permanent relational claims, human-support language, and pause/confirmation language. Each directive is labeled `pass`, `violation`, or `review`. Style and other semantic directives that cannot be reliably checked with deterministic patterns are labeled `review`, never silently passed. This reduces—but does not eliminate—the enforcement gap; it is not a guarantee of semantic compliance.
 
 ## Required product behavior
 
