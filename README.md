@@ -4,7 +4,7 @@
 
 Turn conversational signals into executable AI safety policies.
 
-NEMA Boundary Runtime is an inspectable Developer Tool that converts inferred conversational control signals into deterministic response directives. The MVP makes the full path visible: **signals → fired policies → controlled response**.
+NEMA stands for **Neurostate Machine Language**. NEMA Boundary Runtime is an inspectable Developer Tool that converts inferred conversational control signals into deterministic response directives. The MVP makes the full path visible: **signals → fired policies → controlled response**.
 
 > This is a behavioral control prototype, not a medical or psychological diagnostic system. It does not measure neurotransmitters or guarantee prevention of dependency or harm.
 
@@ -88,9 +88,15 @@ NEMA now performs deterministic post-generation checks for a narrow set of obser
 
 No credential is required for offline demo mode. Production API credentials must be retrieved at runtime from Vault; do not place them in code, `.env`, logs, crontab, or repository history.
 
+## How Codex contributed
+
+Codex was the primary implementation partner during OpenAI Build Week. It translated the initial product specification into the FastAPI/Pydantic runtime, policy schema, execution trace, Policy Lab replay UI, deterministic and adversarial tests, Playwright desktop/mobile harness, non-root Docker packaging, hosted-sandbox quota controls, OpenRouter GPT-5.6 proof adapter, and the limited post-generation verifier. Codex also ran regression checks and prepared publication candidates for independent review.
+
+Human decisions defined the product boundary and research claims: treating NeuroState/ControlState as a behavioral control representation rather than biology or diagnosis; keeping policy firing deterministic; separating the 40-case conformance contract from model-performance evidence; requiring Vault-backed credentials; limiting the API proof to four synthetic scenarios; and refusing to claim semantic guarantees, threshold calibration, or universal effectiveness. Independent AI reviews were used as publication gates, and their blocking findings were fixed before release.
+
 ## Build Week notes
 
-The project targets **Developer Tools**. Before submission, add the 40-case evaluation artifact, Codex `/feedback` session ID, public demo video, and a description of where Codex accelerated implementation. External publication is blocked until the required independent AI security/quality review is recorded in the private operator handoff log.
+The project targets **Developer Tools**. The remaining submission gates are a shareable Codex `/feedback` Session ID, final public YouTube visibility, and final Devpost form review. External publication remains gated by independent AI security/quality review recorded in the private operator handoff log.
 
 ### Windows activation
 

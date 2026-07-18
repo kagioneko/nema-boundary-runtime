@@ -1,6 +1,6 @@
 # Devpost Submission Draft — NEMA Boundary Runtime
 
-> Status: pre-API draft. Replace every `[FINAL ...]` marker after GPT-5.6 integration. Do not submit this draft unchanged.
+> Status: post-API proof draft. Do not submit until the remaining Codex Session ID is filled, YouTube visibility is public, and the final cross-link review passes.
 
 ## Track
 
@@ -16,7 +16,7 @@ LLM boundary behavior is often hidden in a static prompt. When a conversation be
 
 ## What it does
 
-NEMA Boundary Runtime separates signal inference from policy execution. A validated `ControlState` enters a deterministic runtime. Versioned policies evaluate that state, emit response-control directives, and produce a condition-level trace. The UI shows signals, fired policies, directives, baseline and controlled responses, a token-level difference view, and the exact execution path.
+NEMA—Neurostate Machine Language—separates signal inference from policy execution. A validated `ControlState` enters a deterministic runtime. Versioned policies evaluate that state, emit response-control directives, and produce a condition-level trace. The UI shows signals, fired policies, directives, baseline and controlled responses, a token-level difference view, and the exact execution path.
 
 Developers can temporarily edit a threshold and replay the same input. The override is schema-validated, size-bounded, and never persisted. This makes it obvious that NEMA is an executable developer tool rather than a hidden prompt wrapper.
 
