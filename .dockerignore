@@ -1,0 +1,7 @@
+.git
+.venv
+artifacts
+site-integration
+__pycache__
+.pytest_cache
+*.pyc

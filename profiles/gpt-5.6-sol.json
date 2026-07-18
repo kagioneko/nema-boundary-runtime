@@ -1,0 +1,15 @@
+{
+  "profile_id": "gpt-5.6-sol-v1",
+  "model": "gpt-5.6-sol",
+  "reasoning_effort": "medium",
+  "policy_version": "nema-boundary-v0.1",
+  "thresholds": {
+    "arousal_high": 0.75,
+    "distress_high": 0.7,
+    "decision_dependency_high": 0.65,
+    "emotional_intensity_high": 0.75,
+    "urgency_high": 0.75,
+    "exclusive_attachment_high": 0.65
+  },
+  "status": "target_profile_offline_adapter_not_calibrated"
+}

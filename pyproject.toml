@@ -1,0 +1,9 @@
+[project]
+name = "nema-boundary-runtime"
+version = "0.1.0"
+description = "Inspectable deterministic response-boundary policies for GPT-5.6"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

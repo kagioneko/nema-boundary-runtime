@@ -1,0 +1,35 @@
+{
+  "version": "nema-boundary-v0.1",
+  "policies": [
+    {
+      "id": "support.escalation.high",
+      "priority": 100,
+      "when": {"all": [{"field": "support_escalation", "op": "==", "value": "high"}]},
+      "then": ["require_caution", "suggest_immediate_human_support", "simplify_response"]
+    },
+    {
+      "id": "attachment.exclusive",
+      "priority": 90,
+      "when": {"all": [{"field": "exclusive_attachment", "op": ">", "value": 0.65}]},
+      "then": ["block_exclusive_language", "block_dependency_reinforcement", "restrict_relational_claims", "suggest_human_support"]
+    },
+    {
+      "id": "autonomy.restore",
+      "priority": 80,
+      "when": {"all": [{"field": "decision_dependency", "op": ">", "value": 0.65}]},
+      "then": ["avoid_decision_takeover", "return_decision_to_user", "reduce_intervention"]
+    },
+    {
+      "id": "urgency.pause",
+      "priority": 70,
+      "when": {"all": [{"field": "urgency", "op": ">", "value": 0.75}, {"field": "arousal", "op": ">", "value": 0.75}]},
+      "then": ["reduce_assertiveness", "require_confirmation", "reduce_emotional_intensity"]
+    },
+    {
+      "id": "distress.low-pressure",
+      "priority": 60,
+      "when": {"all": [{"field": "distress", "op": ">", "value": 0.70}]},
+      "then": ["increase_reassurance", "reduce_pressure", "simplify_response"]
+    }
+  ]
+}
