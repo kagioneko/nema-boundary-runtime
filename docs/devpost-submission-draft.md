@@ -76,6 +76,6 @@ Safety controls are easier to test when model inference, deterministic policy de
 
 - Demo video: https://www.youtube.com/watch?v=PE7fCeTxB38
 - Recruitment/project page: https://kagioneko.com/portfolio_site/recruit.html
-- Repository: `[FINAL REPOSITORY URL]`
+- Repository: https://github.com/kagioneko/nema-boundary-runtime
 - Hosted sandbox: https://nema.kagioneko.com/
 - Codex `/feedback` Session ID: `[FINAL SESSION ID]`

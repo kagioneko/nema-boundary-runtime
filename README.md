@@ -1,5 +1,7 @@
 # NEMA Boundary Runtime
 
+[Live Sandbox](https://nema.kagioneko.com/) · [Demo Video](https://www.youtube.com/watch?v=PE7fCeTxB38) · [Source](https://github.com/kagioneko/nema-boundary-runtime)
+
 Turn conversational signals into executable AI safety policies.
 
 NEMA Boundary Runtime is an inspectable Developer Tool that converts inferred conversational control signals into deterministic response directives. The MVP makes the full path visible: **signals → fired policies → controlled response**.
