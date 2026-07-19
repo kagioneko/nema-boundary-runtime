@@ -1,6 +1,6 @@
 # NEMA Boundary Runtime
 
-[Live Sandbox](https://nema.kagioneko.com/) · [Demo Video](https://www.youtube.com/watch?v=PE7fCeTxB38) · [Source](https://github.com/kagioneko/nema-boundary-runtime)
+[Live Sandbox](https://nema.kagioneko.com/) · [Demo Video](https://www.youtube.com/watch?v=ntYc-rdl5_Y) · [Source](https://github.com/kagioneko/nema-boundary-runtime)
 
 Turn conversational signals into executable AI safety policies.
 
@@ -27,7 +27,7 @@ The offline fixture is deliberately labeled and is **not** presented as a traine
 
 Try the reviewed offline demo at **https://nema.kagioneko.com/**. It uses deterministic fixtures, requires no API credential, stores no conversation text, and applies per-client demo quotas.
 
-[Watch the captioned 2m11s demo](https://www.youtube.com/watch?v=PE7fCeTxB38)
+[Watch the captioned 2m11s demo](https://www.youtube.com/watch?v=ntYc-rdl5_Y)
 
 ![NEMA Boundary Runtime desktop interface](artifacts/desktop.png)
 

@@ -44,7 +44,7 @@ Keep the disclaimer visible: this is not GPT-5.6 performance and makes no genera
 
 ## 2:25–2:40 — Codex and close
 
-**Voiceover:** “Codex accelerated the runtime, adversarial tests, UI, and evaluation harness. GPT-5.6 Structured Outputs will replace the offline adapter in the final calibrated build. NEMA turns conversational signals into executable, inspectable policies.”
+**Voiceover:** “Codex accelerated the runtime, adversarial tests, UI, and evaluation harness. In a 12-call integration proof, GPT-5.6 Structured Outputs inferred the ControlState and generated matched baseline and controlled responses; NEMA—not the model—selected the policies. NEMA turns conversational signals into executable, inspectable policies.”
 
 ## Recording checklist
 
