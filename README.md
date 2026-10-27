@@ -1,6 +1,6 @@
 # NEMA Boundary Runtime
 
-[Live Sandbox](https://nema.kagioneko.com/) · [Demo Video](https://www.youtube.com/watch?v=ntYc-rdl5_Y) · [Source](https://github.com/kagioneko/nema-boundary-runtime)
+[Demo Video](https://www.youtube.com/watch?v=ntYc-rdl5_Y) · [Source](https://github.com/kagioneko/nema-boundary-runtime)
 
 Turn conversational signals into executable AI safety policies.
 
@@ -23,9 +23,9 @@ NEMA stands for **Neurostate Machine Language**. NEMA Boundary Runtime is an ins
 
 The offline fixture is deliberately labeled and is **not** presented as a trained classifier. A separate limited API proof uses GPT-5.6 Sol Structured Outputs for state inference and GPT-5.6 Sol for baseline/controlled generation. It is evidence of integration, not a benchmark or generalization result.
 
-## Live hosted sandbox
+## Demo
 
-Try the reviewed offline demo at **https://nema.kagioneko.com/**. It uses deterministic fixtures, requires no API credential, stores no conversation text, and applies per-client demo quotas.
+The hosted sandbox has been retired. To try the same reviewed offline demo, [run it locally](#run-locally): it uses deterministic fixtures and requires no API credential.
 
 [Watch the captioned 2m11s demo](https://www.youtube.com/watch?v=ntYc-rdl5_Y)
 
